@@ -13,7 +13,20 @@ import {
   IonDatetime,
   IonDatetimeButton,
   IonModal,
+  IonFabList,
+  IonFab,
+  IonFabButton,
+  IonIcon,
 } from '@ionic/react';
+
+import {
+  chevronDownCircle,
+  chevronForwardCircle,
+  chevronUpCircle,
+  colorPalette,
+  document,
+  globe,
+} from 'ionicons/icons';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -45,12 +58,28 @@ export default function App() {
   return (
     <IonApp>
       {/* <FormStockItem /> */}
-      <FormSupplier />
-      {/* <AppProvider>
+      {/* <FormSupplier /> */}
+      <AppProvider>
         <IonContent className="ion-padding">
           <StockNavigation />
+          <IonFab slot="fixed" vertical="bottom" horizontal="end">
+            <IonFabButton>
+              <IonIcon icon={chevronUpCircle}></IonIcon>
+            </IonFabButton>
+            <IonFabList side="top">
+              <IonFabButton>
+                <IonIcon icon={document}></IonIcon>
+              </IonFabButton>
+              <IonFabButton>
+                <IonIcon icon={colorPalette}></IonIcon>
+              </IonFabButton>
+              <IonFabButton>
+                <IonIcon icon={globe}></IonIcon>
+              </IonFabButton>
+            </IonFabList>
+          </IonFab>
         </IonContent>
-      </AppProvider> */}
+      </AppProvider>
     </IonApp>
   );
 }
