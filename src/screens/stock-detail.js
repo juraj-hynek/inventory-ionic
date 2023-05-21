@@ -1,6 +1,5 @@
 import React, { useContext, useState } from 'react';
 import {
-  IonContent,
   IonHeader,
   IonPage,
   IonTitle,
@@ -9,8 +8,6 @@ import {
   IonButtons,
   setupIonicReact,
   IonApp,
-  IonItem,
-  IonLabel,
   IonInput,
   IonList,
   IonListHeader,
@@ -19,69 +16,29 @@ import {
   IonDatetime,
   IonDatetimeButton,
   IonModal,
+  IonContent,
+  IonItem,
+  IonLabel,
+  IonButton,
+  IonTextarea,
+  IonCardHeader,
+  IonCardTitle,
+  IonCardContent,
+  IonCardSubtitle,
+  IonCard,
 } from '@ionic/react';
 import { useParams } from 'react-router';
 import { AppContext } from '../state-global/state';
-
-const FormStockItem = () => {
-  const [selectedDate, setSelectedDate] = useState('');
-
-  const handleDateChange = (event) => {
-    setSelectedDate(event.detail.value);
-  };
-
-  return (
-    <IonList>
-      <IonListHeader>
-        <IonLabel>Stock Item</IonLabel>
-      </IonListHeader>
-      <IonItem lines="none">
-        {/* <IonLabel position="floating">Description</IonLabel> */}
-        <IonInput fill="outline" label="Description" type="text" />
-      </IonItem>
-      <IonItem lines="none">
-        {/* <IonLabel position="floating">SKU</IonLabel> */}
-        <IonInput label="SKU" type="text" />
-      </IonItem>
-      <IonItem lines="none">
-        {/* <IonLabel position="floating">Barcode</IonLabel> */}
-        <IonInput label="Barcode" type="text" />
-      </IonItem>
-
-      <IonItem lines="none">
-        <IonLabel>Category</IonLabel>
-        <IonSelect>
-          <IonSelectOption value="red">Red</IonSelectOption>
-          <IonSelectOption value="green">Green</IonSelectOption>
-          <IonSelectOption value="blue">Blue</IonSelectOption>
-        </IonSelect>
-      </IonItem>
-
-      <IonItem lines="none">
-        <IonLabel>Supplier</IonLabel>
-        <IonSelect>
-          <IonSelectOption value="red">Red</IonSelectOption>
-          <IonSelectOption value="green">Green</IonSelectOption>
-          <IonSelectOption value="blue">Blue</IonSelectOption>
-        </IonSelect>
-      </IonItem>
-      <IonItem lines="none">
-        <IonLabel>Date</IonLabel>
-        <IonDatetimeButton datetime="datetime"></IonDatetimeButton>
-
-        <IonModal keepContentsMounted={true}>
-          <IonDatetime id="datetime"></IonDatetime>
-        </IonModal>
-      </IonItem>
-    </IonList>
-  );
-};
 
 const DetailPage = () => {
   const { sharedData, setSharedData } = useContext(AppContext);
   const { id } = useParams();
 
   const item = sharedData.find((item) => item.id == id);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Handle form submission here
+  };
   return (
     <IonPage>
       <IonHeader>
@@ -93,7 +50,114 @@ const DetailPage = () => {
         </IonToolbar>
       </IonHeader>
       <IonContent>
-        <FormStockItem />
+        <IonCard>
+          <img
+            alt="Silhouette of mountains"
+            src="https://ionicframework.com/docs/img/demos/card-media.png"
+          />
+          <IonCardHeader>
+            <IonCardTitle>Card Title</IonCardTitle>
+            <IonCardSubtitle>Card Subtitle</IonCardSubtitle>
+          </IonCardHeader>
+          <IonCardContent>
+            <form onSubmit={handleSubmit}>
+              <IonItem>
+                <IonLabel position="floating">Description</IonLabel>
+                <IonInput></IonInput>
+              </IonItem>
+
+              <IonItem>
+                <IonLabel position="floating">Purchase Price</IonLabel>
+                <IonInput type="number"></IonInput>
+              </IonItem>
+
+              <IonItem>
+                <IonLabel position="floating">Sell Price</IonLabel>
+                <IonInput type="number"></IonInput>
+              </IonItem>
+
+              <IonItem>
+                <IonLabel position="floating">Barcode</IonLabel>
+                <IonInput></IonInput>
+              </IonItem>
+
+              <IonItem>
+                <IonLabel position="floating">SKU</IonLabel>
+                <IonInput></IonInput>
+              </IonItem>
+
+              <IonItem>
+                <IonLabel position="floating">Category</IonLabel>
+                <IonSelect>
+                  <IonSelectOption value="demo">Demo</IonSelectOption>
+                  <IonSelectOption value="demo">Demo</IonSelectOption>
+                </IonSelect>
+              </IonItem>
+
+              <IonItem>
+                <IonLabel position="floating">Storage</IonLabel>
+                <IonSelect>
+                  <IonSelectOption value="storage-room-1">
+                    Storage Room 1
+                  </IonSelectOption>
+                  <IonSelectOption value="storage-room-2">
+                    Storage Room 2
+                  </IonSelectOption>
+                </IonSelect>
+              </IonItem>
+
+              <IonItem>
+                <IonLabel position="floating">Supplier</IonLabel>
+                <IonSelect>
+                  <IonSelectOption value="demo">Demo</IonSelectOption>
+                  <IonSelectOption value="demo">Demo</IonSelectOption>
+                </IonSelect>
+              </IonItem>
+
+              <IonItem>
+                <IonLabel position="floating">Units</IonLabel>
+                <IonSelect>
+                  <IonSelectOption value="demo">Demo</IonSelectOption>
+                  <IonSelectOption value="demo">Demo</IonSelectOption>
+                </IonSelect>
+              </IonItem>
+
+              <IonItem>
+                <IonLabel position="floating">Min Pack Qty</IonLabel>
+                <IonInput type="number"></IonInput>
+              </IonItem>
+
+              <IonItem>
+                <IonLabel position="floating">Expiration date</IonLabel>
+                <IonInput type="date"></IonInput>
+              </IonItem>
+
+              <IonItem>
+                <IonLabel position="floating">Case Qty</IonLabel>
+                <IonInput type="number"></IonInput>
+              </IonItem>
+
+              <IonItem>
+                <IonLabel position="floating">Pack Qty</IonLabel>
+                <IonInput type="number"></IonInput>
+              </IonItem>
+
+              <IonItem>
+                <IonLabel position="floating">Inner Pack Qty</IonLabel>
+                <IonInput type="number"></IonInput>
+              </IonItem>
+
+              <IonItem>
+                <IonLabel position="floating">Notes</IonLabel>
+                <IonTextarea rows={4}></IonTextarea>
+              </IonItem>
+
+              <IonButton expand="full" type="submit">
+                Save
+              </IonButton>
+            </form>
+          </IonCardContent>
+        </IonCard>
       </IonContent>
     </IonPage>
   );
