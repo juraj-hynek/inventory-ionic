@@ -8,10 +8,10 @@ const restaurantStockItems = [];
 for (let i = 0; i < 100; i++) {
   const stockItem = {
     description: `Stock Item ${i + 1}`,
-    purchasePrice: '$' + Math.floor(Math.random() * 100),
+    purchasePrice: Math.floor(Math.random() * 100),
     sellPrice: '$' + Math.floor(Math.random() * 200),
     barCode: Math.random().toString(36).substr(2, 10),
-    sku: 'SKU' + Math.floor(Math.random() * 1000),
+    sku: Math.floor(Math.random() * 1000),
     category: 'Category ' + ((i % 3) + 1),
     storage: 'Storage ' + (i % 2 === 0 ? 'A' : 'B'),
     supplier: 'Supplier ' + ((i % 5) + 1),

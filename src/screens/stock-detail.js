@@ -59,31 +59,31 @@ const DetailPage = () => {
             <IonCardTitle>Card Title</IonCardTitle>
             <IonCardSubtitle>Card Subtitle</IonCardSubtitle>
           </IonCardHeader>
-          <IonCardContent>
+          <IonCardContent style={{ padding: 0 }}>
             <form onSubmit={handleSubmit}>
               <IonItem>
                 <IonLabel position="floating">Description</IonLabel>
-                <IonInput></IonInput>
+                <IonInput value={item.description}></IonInput>
               </IonItem>
 
               <IonItem>
                 <IonLabel position="floating">Purchase Price</IonLabel>
-                <IonInput type="number"></IonInput>
+                <IonInput value={item.purchasePrice} type="number"></IonInput>
               </IonItem>
 
               <IonItem>
                 <IonLabel position="floating">Sell Price</IonLabel>
-                <IonInput type="number"></IonInput>
+                <IonInput value={item.sellPrice} type="number"></IonInput>
               </IonItem>
 
               <IonItem>
                 <IonLabel position="floating">Barcode</IonLabel>
-                <IonInput></IonInput>
+                <IonInput value={item.barCode}></IonInput>
               </IonItem>
 
               <IonItem>
                 <IonLabel position="floating">SKU</IonLabel>
-                <IonInput></IonInput>
+                <IonInput value={item.sku}></IonInput>
               </IonItem>
 
               <IonItem>
@@ -124,7 +124,7 @@ const DetailPage = () => {
 
               <IonItem>
                 <IonLabel position="floating">Min Pack Qty</IonLabel>
-                <IonInput type="number"></IonInput>
+                <IonInput value="10" type="number"></IonInput>
               </IonItem>
 
               <IonItem>
